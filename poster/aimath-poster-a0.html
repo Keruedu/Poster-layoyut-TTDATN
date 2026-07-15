@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIMath - Poster đồ án tốt nghiệp</title>
+  <style>
+    :root {
+      --green: #58cc02;
+      --green-dark: #43a800;
+      --green-soft: #effbe7;
+      --orange: #ff9600;
+      --blue: #1cb0f6;
+      --blue-soft: #eaf7fe;
+      --yellow: #ffc800;
+      --red: #ff4b4b;
+      --ink: #2f2f2f;
+      --muted: #6f767d;
+      --line: #dfe5e8;
+      --paper: #ffffff;
+      --soft: #f7f9f8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      background: #dfe5e8;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body { padding: 0; }
+
+    .poster {
+      position: relative;
+      width: 2800px;
+      height: 1980px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: none;
+    }
+
+    .top-line {
+      height: 22px;
+      background: linear-gradient(90deg, var(--green) 0 54%, var(--blue) 54% 78%, var(--orange) 78% 100%);
+    }
+
+    header {
+      position: relative;
+      height: 300px;
+      padding: 42px 88px 34px;
+      border-bottom: 2px solid var(--line);
+      background: #fff;
+    }
+
+    .identity {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      width: 420px;
+    }
+
+    .university-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .identity strong {
+      display: block;
+      color: #183d5d;
+      font-size: 23px;
+      line-height: 1.24;
+      text-transform: uppercase;
+    }
+
+    .identity span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .title-block {
+      position: absolute;
+      left: 490px;
+      right: 330px;
+      top: 37px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: #26353b;
+      font-size: 60px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .title-accent { color: var(--green-dark); }
+
+    .meta {
+      margin-top: 21px;
+      color: #57636a;
+      font-size: 21px;
+      line-height: 1.46;
+      font-weight: 600;
+    }
+
+    .meta b { color: var(--ink); }
+
+    .header-fox {
+      position: absolute;
+      right: 72px;
+      bottom: -2px;
+      width: 250px;
+      height: 265px;
+      object-fit: contain;
+      object-position: bottom;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 560px 1fr 590px;
+      gap: 34px;
+      height: 1498px;
+      padding: 36px 58px 28px;
+      background: #fff;
+    }
+
+    .column {
+      min-width: 0;
+      height: 100%;
+    }
+
+    .section {
+      margin-bottom: 27px;
+      padding-top: 15px;
+      border-top: 8px solid var(--green);
+    }
+
+    .section.blue { border-top-color: var(--blue); }
+    .section.orange { border-top-color: var(--orange); }
+    .section.yellow { border-top-color: var(--yellow); }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 15px;
+      color: #26353b;
+      font-size: 34px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .index {
+      display: inline-grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 24px;
+    }
+
+    .blue .index { background: var(--blue); }
+    .orange .index { background: var(--orange); }
+    .yellow .index { background: #e6aa00; }
+
+    p {
+      margin: 0;
+      color: #4d5960;
+      font-size: 24px;
+      line-height: 1.43;
+    }
+
+    .problem-list,
+    .contribution-list,
+    .future-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 15px;
+    }
+
+    .bullet {
+      position: relative;
+      padding-left: 29px;
+      color: #455159;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .bullet::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .goal {
+      position: relative;
+      padding: 23px 128px 24px 24px;
+      border: 2px solid #bfe9a3;
+      border-radius: 8px;
+      background: var(--green-soft);
+    }
+
+    .goal p {
+      color: #36523f;
+      font-size: 23px;
+      font-weight: 650;
+    }
+
+    .goal img {
+      position: absolute;
+      right: 14px;
+      bottom: 9px;
+      width: 105px;
+      height: 105px;
+    }
+
+    .audiences {
+      display: grid;
+      gap: 11px;
+    }
+
+    .audience {
+      display: grid;
+      grid-template-columns: 47px 1fr;
+      gap: 13px;
+      align-items: start;
+      padding: 14px 16px;
+      border-left: 6px solid var(--blue);
+      background: var(--soft);
+    }
+
+    .audience-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: #087dad;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .audience b {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 22px;
+    }
+
+    .audience span {
+      color: #5c676d;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .mascot-band {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff7e8;
+      border: 2px solid #ffe0a3;
+    }
+
+    .mascot-band img {
+      position: absolute;
+      right: -10px;
+      bottom: -76px;
+      width: 255px;
+      height: 300px;
+      object-fit: contain;
+    }
+
+    .mascot-band div {
+      width: 315px;
+      padding: 28px 0 0 25px;
+    }
+
+    .mascot-band strong {
+      color: #b86600;
+      font-size: 27px;
+    }
+
+    .mascot-band p {
+      margin-top: 9px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .architecture {
+      padding: 21px 23px;
+      border: 2px solid #c9e9f7;
+      border-radius: 8px;
+      background: #fbfdfe;
+    }
+
+    .arch-label {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .client-row,
+    .service-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .arch-box {
+      min-height: 78px;
+      display: grid;
+      place-items: center;
+      padding: 9px 12px;
+      border-radius: 7px;
+      border: 2px solid #a9dff6;
+      background: var(--blue-soft);
+      color: #116f96;
+      text-align: center;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .arch-box.green {
+      border-color: #bce49e;
+      background: var(--green-soft);
+      color: #347b14;
+    }
+
+    .arch-box.orange {
+      border-color: #ffd09b;
+      background: #fff5e9;
+      color: #a65a00;
+    }
+
+    .arrow {
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #8a9aa2;
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    .backend {
+      min-height: 96px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--green);
+      color: white;
+      text-align: center;
+      font-size: 25px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .backend small {
+      display: block;
+      margin-top: 6px;
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    .ai-flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 116px;
+      padding: 19px 12px 13px;
+      border: 2px solid #b9e5fa;
+      border-radius: 7px;
+      background: var(--blue-soft);
+      color: #345565;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .flow-step b {
+      display: block;
+      width: 31px;
+      height: 31px;
+      margin: -5px auto 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-size: 19px;
+      line-height: 31px;
+    }
+
+    .human-loop {
+      margin-top: 13px;
+      padding: 14px 18px;
+      border-left: 7px solid var(--orange);
+      background: #fff6ea;
+      color: #7f4b0e;
+      font-size: 21px;
+      line-height: 1.32;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 13px;
+      height: 285px;
+    }
+
+    .screen {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: #edf2f4;
+    }
+
+    .screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .screen span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 13px;
+      background: rgba(31, 48, 57, 0.88);
+      color: white;
+      font-size: 17px;
+      font-weight: 750;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 13px;
+    }
+
+    .feature {
+      min-height: 118px;
+      padding: 14px;
+      border-top: 6px solid var(--green);
+      background: var(--soft);
+    }
+
+    .feature:nth-child(2) { border-top-color: var(--blue); }
+    .feature:nth-child(3) { border-top-color: var(--orange); }
+    .feature:nth-child(4) { border-top-color: var(--yellow); }
+
+    .feature b {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 20px;
+    }
+
+    .feature span {
+      color: #647077;
+      font-size: 17px;
+      line-height: 1.28;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .metric {
+      min-height: 143px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 13px;
+      border-radius: 8px;
+      background: var(--green-soft);
+      text-align: center;
+    }
+
+    .metric:nth-child(2) { background: var(--blue-soft); }
+    .metric:nth-child(3) { background: #fff6db; }
+    .metric:nth-child(4) { background: #fff1e5; }
+
+    .metric strong {
+      color: var(--green-dark);
+      font-size: 51px;
+      line-height: 1;
+    }
+
+    .metric:nth-child(2) strong { color: #1288bc; }
+    .metric:nth-child(3) strong { color: #b88400; }
+    .metric:nth-child(4) strong { color: #c46e00; }
+
+    .metric span {
+      margin-top: 9px;
+      color: #59666c;
+      font-size: 17px;
+      line-height: 1.22;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .result-banner {
+      position: relative;
+      min-height: 182px;
+      margin-top: 14px;
+      padding: 21px 150px 20px 22px;
+      border: 2px solid #ffe09b;
+      border-radius: 8px;
+      background: #fff9e9;
+    }
+
+    .result-banner strong {
+      display: block;
+      color: #996e00;
+      font-size: 24px;
+    }
+
+    .result-banner p {
+      margin-top: 9px;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .result-banner img {
+      position: absolute;
+      right: 13px;
+      bottom: 8px;
+      width: 137px;
+      height: 137px;
+    }
+
+    .contribution-list,
+    .future-list { gap: 10px; }
+    .contribution-list .bullet,
+    .future-list .bullet { font-size: 20px; }
+    .contribution-list .bullet::before { background: var(--green); }
+    .future-list .bullet::before { background: var(--blue); }
+
+    .security {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .security span {
+      padding: 11px 12px;
+      border-left: 5px solid var(--blue);
+      background: #f3f8fa;
+      color: #526168;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      height: 160px;
+      padding: 24px 70px;
+      background: #26353b;
+      color: white;
+    }
+
+    .stack-title {
+      margin-bottom: 10px;
+      color: #b9c5ca;
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .stack span {
+      padding: 8px 12px;
+      border: 1px solid #60737d;
+      border-radius: 6px;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .links {
+      min-width: 590px;
+      padding-left: 35px;
+      border-left: 2px solid #53656e;
+      text-align: right;
+    }
+
+    .links strong {
+      color: #9be35e;
+      font-size: 25px;
+    }
+
+    .links div {
+      margin-top: 8px;
+      color: #d8e0e4;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    @media screen and (max-width: 1600px) {
+      html, body { width: 1400px; height: 990px; overflow: hidden; }
+      .poster { transform: scale(0.5); transform-origin: top left; }
+    }
+
+    @media print {
+      @page { size: A0 landscape; margin: 0; }
+      html, body {
+        width: 1189mm;
+        height: 841mm;
+        overflow: hidden;
+        background: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      body { padding: 0; }
+      .poster {
+        width: 2800px;
+        height: 1980px;
+        box-shadow: none;
+        transform: scale(1.60495);
+        transform-origin: top left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="poster">
+    <div class="top-line"></div>
+    <header>
+      <div class="identity">
+        <img class="university-logo" src="../assets/brand/logo-khtn.png" alt="Logo Trường Đại học Khoa học Tự nhiên" />
+        <div>
+          <strong>Đại học Quốc gia TP.HCM<br />Trường Đại học Khoa học Tự nhiên</strong>
+          <span>Khoa Công nghệ Thông tin</span>
+        </div>
+      </div>
+
+      <div class="title-block">
+        <h1>Cải tiến và phát triển tính năng mới cho ứng dụng học Toán bậc tiểu học <span class="title-accent">với AI</span></h1>
+        <div class="meta">
+          <b>GVHD:</b> ThS. Nguyễn Lê Hoàng Dũng · ThS. Trần Duy Thảo<br />
+          <b>Nhóm:</b> Mai Xuân Quý · Nguyễn Đức Toàn · Lê Hoàng Việt · Lê Thành Vinh · Trương Lê Anh Vũ
+        </div>
+      </div>
+
+      <img class="header-fox" src="../assets/characters/hello.svg" alt="Linh vật AIMath chào" />
+    </header>
+
+    <main>
+      <div class="column">
+        <section class="section orange">
+          <h2><span class="index">1</span>Bối cảnh và vấn đề</h2>
+          <p>Học sinh có tốc độ tiếp thu khác nhau, giáo viên mất nhiều thời gian chuẩn bị nội dung và phụ huynh khó theo dõi tiến độ học tập liên tục.</p>
+          <div class="problem-list">
+            <div class="bullet">Trải nghiệm web và mobile chưa đồng bộ.</div>
+            <div class="bullet">AI chưa bám sát bài học và lịch sử học tập.</div>
+            <div class="bullet">Thiếu công cụ cộng đồng, trò chơi hóa và quản trị tập trung.</div>
+            <div class="bullet">Hệ thống cũ khó mở rộng khi số lượng chức năng tăng.</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2><span class="index">2</span>Mục tiêu</h2>
+          <div class="goal">
+            <p>Xây dựng hệ sinh thái học Toán đa nền tảng, tích hợp AI có kiểm soát nhằm cá nhân hóa việc học và giảm tải quá trình chuẩn bị nội dung.</p>
+            <img src="../assets/achievement/book-stack.svg" alt="Huy hiệu học tập" />
+          </div>
+        </section>
+
+        <section class="section blue">
+          <h2><span class="index">3</span>Người dùng</h2>
+          <div class="audiences">
+            <div class="audience"><div class="audience-icon">HS</div><div><b>Học sinh</b><span>Học bài, luyện tập, hỏi AI, đấu trường và theo dõi tiến độ.</span></div></div>
+            <div class="audience"><div class="audience-icon">GV</div><div><b>Giáo viên</b><span>Tạo nội dung, câu hỏi, kiểm tra và đánh giá kết quả.</span></div></div>
+            <div class="audience"><div class="audience-icon">QT</div><div><b>Quản trị viên</b><span>Quản lý người dùng, nội dung, cộng đồng, AI và thanh toán.</span></div></div>
+          </div>
+        </section>
+
+        <div class="mascot-band">
+          <div>
+            <strong>Học tập có động lực</strong>
+            <p>Xu, thành tích, chuỗi học tập, bảng xếp hạng và đấu trường được gắn với kết quả học thật.</p>
+          </div>
+          <img src="../assets/characters/holdcoin.svg" alt="Linh vật AIMath cầm xu" />
+        </div>
+      </div>
+
+      <div class="column">
+        <section class="section blue">
+          <h2><span class="index">4</span>Giải pháp và kiến trúc hệ thống</h2>
+          <div class="architecture">
+            <div class="arch-label">Nền tảng người dùng</div>
+            <div class="client-row">
+              <div class="arch-box">Web học sinh<br />Next.js</div>
+              <div class="arch-box">Mobile<br />Flutter</div>
+              <div class="arch-box">Web quản trị<br />Next.js</div>
+            </div>
+            <div class="arrow">↓ REST API · JWT · WebSocket ↓</div>
+            <div class="backend">Spring Boot Backend<small>Xác thực · Học tập · Chấm điểm · Tiến độ · Xu · Thanh toán · Thông báo</small></div>
+            <div class="arrow">↓ Dịch vụ và dữ liệu ↓</div>
+            <div class="service-row">
+              <div class="arch-box green">AI Service<br />FastAPI · RAG</div>
+              <div class="arch-box green">PostgreSQL<br />Qdrant</div>
+              <div class="arch-box orange">Gemini · Qwen<br />FCM · PayOS · SePay</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section blue">
+          <h2><span class="index">5</span>Quy trình AI và RAG</h2>
+          <div class="ai-flow">
+            <div class="flow-step"><b>1</b>Chọn bài học và chức năng AI</div>
+            <div class="flow-step"><b>2</b>Xác thực, phân quyền, kiểm tra xu</div>
+            <div class="flow-step"><b>3</b>Truy xuất tài liệu từ Qdrant</div>
+            <div class="flow-step"><b>4</b>Reranking và tạo prompt ngữ cảnh</div>
+            <div class="flow-step"><b>5</b>Gemini hoặc Qwen sinh kết quả</div>
+            <div class="flow-step"><b>6</b>Kiểm tra, lưu và cho phép duyệt</div>
+          </div>
+          <div class="human-loop">AI là trợ lý hỗ trợ học tập và soạn nội dung, không thay thế giáo viên.</div>
+        </section>
+
+        <section class="section">
+          <h2><span class="index">6</span>Trải nghiệm nổi bật</h2>
+          <div class="screens">
+            <div class="screen"><img src="../assets/screens/bai-hoc.jpeg" alt="Bài học AIMath" /><span>Bài học đa phương tiện</span></div>
+            <div class="screen"><img src="../assets/screens/tro-ly-ai.jpeg" alt="Trợ lý AI" /><span>Trợ lý AI theo ngữ cảnh</span></div>
+            <div class="screen"><img src="../assets/screens/voice-chat-ai.jpeg" alt="Voice chat AI" /><span>Hội thoại giọng nói</span></div>
+          </div>
+          <div class="feature-grid">
+            <div class="feature"><b>Học tập</b><span>Slide, video, tóm tắt, sơ đồ tư duy, bài luyện tập và kiểm tra.</span></div>
+            <div class="feature"><b>AI</b><span>Giải thích từng bước, sinh bài, chấm tự luận và voice chat.</span></div>
+            <div class="feature"><b>Tương tác</b><span>Diễn đàn, đấu trường, bảng xếp hạng và thành tích.</span></div>
+            <div class="feature"><b>Quản trị</b><span>Nội dung, người dùng, mô hình AI, thông báo và thanh toán.</span></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="column">
+        <section class="section yellow">
+          <h2><span class="index">7</span>Kết quả kiểm thử</h2>
+          <div class="metrics">
+            <div class="metric"><strong>98,68%</strong><span>Tỷ lệ kiểm thử đạt</span></div>
+            <div class="metric"><strong>150/152</strong><span>Ca kiểm thử thành công</span></div>
+            <div class="metric"><strong>7/9</strong><span>Nhóm chức năng đạt toàn bộ</span></div>
+            <div class="metric"><strong>0</strong><span>Ca kiểm thử bị chặn</span></div>
+          </div>
+          <div class="result-banner">
+            <strong>Hệ thống đã được triển khai</strong>
+            <p>Hoàn thành 5 thành phần: web học sinh, mobile, admin, backend và AI Service; hỗ trợ 3 nhóm người dùng.</p>
+            <img src="../assets/achievement/wow.svg" alt="Huy hiệu thành tích" />
+          </div>
+        </section>
+
+        <section class="section">
+          <h2><span class="index">8</span>Đóng góp chính</h2>
+          <div class="contribution-list">
+            <div class="bullet">Đồng bộ trải nghiệm học tập giữa web và mobile.</div>
+            <div class="bullet">Đưa AI trực tiếp vào luồng bài học bằng RAG.</div>
+            <div class="bullet">Hỗ trợ văn bản, giọng nói và nhiều dạng bài tập.</div>
+            <div class="bullet">Trò chơi hóa gắn với kết quả học tập thực tế.</div>
+            <div class="bullet">Quản trị tập trung nội dung, cộng đồng, AI và thanh toán.</div>
+          </div>
+        </section>
+
+        <section class="section blue">
+          <h2><span class="index">9</span>An toàn và kiểm soát</h2>
+          <div class="security">
+            <span>JWT và phân quyền vai trò</span>
+            <span>BCrypt cho mật khẩu</span>
+            <span>HMAC giữa Backend và AI</span>
+            <span>Khóa API chỉ ở máy chủ</span>
+            <span>Kiểm duyệt cộng đồng</span>
+            <span>Human-in-the-loop cho AI</span>
+          </div>
+        </section>
+
+        <section class="section orange">
+          <h2><span class="index">10</span>Hướng phát triển</h2>
+          <div class="future-list">
+            <div class="bullet">Cải thiện reranking và đánh giá chất lượng câu trả lời AI.</div>
+            <div class="bullet">Bổ sung dạng bài tập và công cụ duyệt cho giáo viên.</div>
+            <div class="bullet">Nâng cấp gợi ý học tập dựa trên điểm yếu cá nhân.</div>
+            <div class="bullet">Hoàn thiện CI/CD, kiểm thử tự động, log và cảnh báo.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <div class="stack-title">Công nghệ sử dụng</div>
+        <div class="stack">
+          <span>Next.js</span><span>React</span><span>Flutter</span><span>Spring Boot</span><span>PostgreSQL</span><span>FastAPI</span><span>Qdrant</span><span>Gemini</span><span>Qwen</span><span>Docker</span><span>Nginx</span>
+        </div>
+      </div>
+      <div class="links">
+        <strong>AIMath · Học Toán cùng AI</strong>
+        <div>Web học sinh: aimath.llms.vn<br />Quản trị: aimath-admin.llms.vn · TP. Hồ Chí Minh, 07/2026</div>
+      </div>
+    </footer>
+  </article>
+</body>
+</html>

@@ -173,6 +173,8 @@
     }
 
     main {
+      position: relative;
+      isolation: isolate;
       display: grid;
       grid-template-columns: 560px 1fr 590px;
       gap: 34px;
@@ -182,8 +184,79 @@
     }
 
     .column {
+      position: relative;
+      z-index: 1;
       min-width: 0;
       height: 100%;
+    }
+
+    .poster-decor {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .decor-tile {
+      --decor-color: #1cb0f6;
+      position: absolute;
+      width: 68px;
+      height: 68px;
+    }
+
+    .decor-tile::before,
+    .decor-tile::after {
+      content: "";
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 12px;
+      background: var(--decor-color);
+    }
+
+    .decor-tile::before {
+      top: -4px;
+      left: 4px;
+      opacity: 0.4;
+      transform: rotate(6deg);
+    }
+
+    .decor-tile::after {
+      top: 0;
+      left: 0;
+    }
+
+    .decor-tile img {
+      position: absolute;
+      top: 19px;
+      left: 19px;
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+    }
+
+    .decor-book { left: -4px; top: 105px; --decor-color: #1cb0f6; transform: rotate(-5deg); }
+    .decor-flask { right: -4px; top: 740px; --decor-color: #58cc02; transform: rotate(4deg); }
+    .decor-check { left: -4px; bottom: 105px; --decor-color: #ff9600; transform: rotate(-4deg); }
+
+    .decor-fox-peek {
+      position: absolute;
+      left: 120px;
+      bottom: 0;
+      width: 360px;
+      height: 165px;
+      overflow: hidden;
+    }
+
+    .decor-fox-peek img {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 360px;
+      height: 360px;
+      object-fit: contain;
+      object-position: top center;
     }
 
     .section {
@@ -324,27 +397,26 @@
       min-width: 0;
       padding: 12px 10px 10px;
       border-top: 5px solid var(--blue);
-      background: #f7fbfd;
+      background: transparent;
     }
 
     .tech-group:nth-child(2) {
       border-top-color: var(--green);
-      background: #f7fcf3;
     }
 
     .tech-group:nth-child(3) {
       border-top-color: var(--orange);
-      background: #fffaf3;
     }
 
     .tech-group h3 {
-      min-height: 39px;
+      min-height: 18px;
       margin: 0 0 7px;
       color: #365565;
-      font-size: 17px;
+      font-size: 15px;
       line-height: 1.15;
       text-align: center;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .tech-group:nth-child(2) h3 { color: #39712f; }
@@ -361,6 +433,7 @@
       display: flex;
       align-items: center;
       gap: 7px;
+      background: transparent;
       color: #46545b;
       font-size: 16px;
       line-height: 1.15;
@@ -391,7 +464,7 @@
 
     .architecture-diagram {
       position: relative;
-      height: 900px;
+      height: 780px;
       margin: 0;
       display: grid;
       place-items: center;
@@ -562,9 +635,9 @@
 
     .product-gallery {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr 1.2fr;
-      gap: 14px;
-      height: 280px;
+      grid-template-columns: 1.2fr 0.4fr 0.4fr 1.2fr;
+      gap: 10px;
+      height: 295px;
     }
 
     .product-panel {
@@ -588,20 +661,19 @@
 
     .product-panel.admin > img { object-fit: contain; }
 
-    .mobile-shots {
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      padding: 10px 10px 42px;
-      background: #f6fbfe;
+    .product-panel.mobile > img {
+      width: 100%;
+      height: calc(100% - 40px);
+      min-width: 0;
+      background: #fff;
+      object-fit: contain;
+      object-position: center top;
     }
 
-    .mobile-shots img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: top;
+    .product-panel.mobile .product-label {
+      padding: 9px 7px;
+      font-size: 16px;
+      white-space: nowrap;
     }
 
     .product-label {
@@ -617,7 +689,7 @@
     }
 
     .product-gallery.secondary {
-      height: 205px;
+      height: 295px;
       margin-top: 14px;
     }
 
@@ -711,6 +783,12 @@
     </header>
 
     <main>
+      <div class="poster-decor" aria-hidden="true">
+        <div class="decor-tile decor-book"><img src="../assets/decor/book-open.svg" alt="" /></div>
+        <div class="decor-tile decor-flask"><img src="../assets/decor/flask-conical.svg" alt="" /></div>
+        <div class="decor-tile decor-check"><img src="../assets/decor/file-check.svg" alt="" /></div>
+        <div class="decor-fox-peek"><img src="../assets/characters/fox-reading.png" alt="" /></div>
+      </div>
       <div class="column">
         <section class="section orange">
           <h2><span class="index">1</span>Bối cảnh và vấn đề</h2>
@@ -790,18 +868,19 @@
         </section>
 
         <section class="section">
-          <h2><span class="index">7</span>Trải nghiệm sản phẩm</h2>
+          <h2><span class="index">6</span>Trải nghiệm sản phẩm</h2>
           <div class="product-gallery">
             <div class="product-panel web">
               <img src="../assets/product/fe-bai-hoc.jpeg" alt="Giao diện bài học trên web AIMath" />
               <span class="product-label">Ứng dụng học tập trên Web</span>
             </div>
             <div class="product-panel mobile">
-              <div class="mobile-shots">
-                <img src="../assets/product/mobile-trang-chu.png" alt="Trang chủ ứng dụng AIMath trên điện thoại" />
-                <img src="../assets/product/mobile-tro-ly-ai.png" alt="Trợ lý AI trên ứng dụng AIMath di động" />
-              </div>
-              <span class="product-label">Ứng dụng Mobile</span>
+              <img src="../assets/product/mobile-trang-chu.png" alt="Trang chủ ứng dụng AIMath trên điện thoại" />
+              <span class="product-label">Trang chủ Mobile</span>
+            </div>
+            <div class="product-panel mobile">
+              <img src="../assets/product/mobile-tro-ly-ai.png" alt="Trợ lý AI trên ứng dụng AIMath di động" />
+              <span class="product-label">Trợ lý AI Mobile</span>
             </div>
             <div class="product-panel admin">
               <img src="../assets/product/admin-tao-bai-tap-ai.jpeg" alt="Tạo bài tập bằng AI trên hệ thống quản trị AIMath" />
@@ -814,11 +893,12 @@
               <span class="product-label">Trợ lý AI theo ngữ cảnh</span>
             </div>
             <div class="product-panel mobile">
-              <div class="mobile-shots">
-                <img src="../assets/product/mobile-tien-do.png" alt="Thống kê tiến độ học tập trên ứng dụng AIMath di động" />
-                <img src="../assets/product/mobile-voice-chat.png" alt="Voice chat AI trên ứng dụng AIMath di động" />
-              </div>
-              <span class="product-label">Tiến độ và Voice chat</span>
+              <img src="../assets/product/mobile-tien-do.png" alt="Thống kê tiến độ học tập trên ứng dụng AIMath di động" />
+              <span class="product-label">Tiến độ Mobile</span>
+            </div>
+            <div class="product-panel mobile">
+              <img src="../assets/product/mobile-voice-chat.png" alt="Voice chat AI trên ứng dụng AIMath di động" />
+              <span class="product-label">Voice chat Mobile</span>
             </div>
             <div class="product-panel admin">
               <img src="../assets/product/admin-tong-quan.jpeg" alt="Bảng điều khiển tổng quan trên hệ thống quản trị AIMath" />
@@ -830,7 +910,7 @@
 
       <div class="column right-column">
         <section class="section blue">
-          <h2><span class="index">6</span>Quy trình AI và RAG</h2>
+          <h2><span class="index">7</span>Quy trình AI và RAG</h2>
           <div class="ai-diagram">
             <div class="flow-node"><span class="step-dot">1</span>Người dùng chọn bài học và chức năng AI</div>
             <div class="flow-arrow"></div>

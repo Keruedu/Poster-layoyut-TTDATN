@@ -23,8 +23,9 @@
       --text-title: 60px;
       --text-section: 36px;
       --text-body: 24px;
-      --text-list: 22px;
-      --text-caption: 18px;
+      --text-list: 24px;
+      --text-caption: 22px;
+      --text-support: 20px;
     }
 
     * {
@@ -99,7 +100,7 @@
     .meta {
       margin-top: 21px;
       color: #57636a;
-      font-size: 20px;
+      font-size: var(--text-caption);
       line-height: 1.46;
       font-weight: 600;
     }
@@ -119,7 +120,7 @@
       display: block;
       margin-bottom: 5px;
       color: #173d5b;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: 0;
@@ -155,7 +156,7 @@
       display: block;
       margin-top: 4px;
       color: #30444f;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 800;
       line-height: 1;
       letter-spacing: 0;
@@ -334,12 +335,17 @@
       background: var(--orange);
     }
 
+    .problem-list .bullet {
+      white-space: nowrap;
+    }
+
     .goal {
       position: relative;
-      padding: 23px 24px 24px;
-      border: 2px solid #bfe9a3;
-      border-radius: 8px;
-      background: var(--green-soft);
+      width: 100%;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
     }
 
     .goal p {
@@ -348,22 +354,22 @@
       font-weight: 700;
     }
 
-    .audiences {
+    .scope-list {
       display: grid;
       gap: 11px;
     }
 
-    .audience {
+    .scope-item {
       display: grid;
       grid-template-columns: 47px 1fr;
       gap: 13px;
-      align-items: start;
-      padding: 14px 16px;
+      align-items: center;
+      padding: 15px 16px;
       border-left: 6px solid var(--blue);
       background: var(--soft);
     }
 
-    .audience-icon {
+    .scope-icon {
       display: grid;
       place-items: center;
       width: 43px;
@@ -371,31 +377,31 @@
       border-radius: 50%;
       background: var(--blue-soft);
       color: #087dad;
-      font-size: 22px;
+      font-size: var(--text-body);
       font-weight: 800;
     }
 
-    .audience b {
+    .scope-item b {
       display: block;
       margin-bottom: 2px;
-      font-size: 22px;
+      font-size: var(--text-body);
     }
 
-    .audience span {
+    .scope-item span {
       color: #5c676d;
-      font-size: 20px;
-      line-height: 1.3;
+      font-size: var(--text-body);
+      line-height: 1.25;
     }
 
     .tech-panel {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
+      gap: 4px;
     }
 
     .tech-group {
       min-width: 0;
-      padding: 12px 10px 10px;
+      padding: 12px 4px 10px;
       border-top: 5px solid var(--blue);
       background: transparent;
     }
@@ -412,7 +418,7 @@
       min-height: 18px;
       margin: 0 0 7px;
       color: #365565;
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.15;
       text-align: center;
       text-transform: uppercase;
@@ -432,10 +438,10 @@
       min-height: 31px;
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 5px;
       background: transparent;
       color: #46545b;
-      font-size: 16px;
+      font-size: var(--text-support);
       line-height: 1.15;
       font-weight: 700;
     }
@@ -496,12 +502,12 @@
     .flow-node {
       position: relative;
       z-index: 2;
-      min-height: 52px;
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 9px 14px;
+      padding: 13px 16px;
       border: 2px solid #b9e5fa;
       border-radius: 7px;
       background: var(--blue-soft);
@@ -519,7 +525,7 @@
     }
 
     .flow-node.model-node {
-      min-height: 72px;
+      min-height: 96px;
       border-color: #b9e5fa;
       background: var(--blue-soft);
       color: #345565;
@@ -540,7 +546,7 @@
       border-radius: 50%;
       background: var(--blue);
       color: white;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
     }
 
@@ -552,7 +558,7 @@
       position: relative;
       z-index: 2;
       width: 22px;
-      height: 22px;
+      height: 36px;
       margin: 0 auto;
     }
 
@@ -562,7 +568,7 @@
       left: 10px;
       top: 0;
       width: 3px;
-      height: 14px;
+      height: 28px;
       background: #7f9ca9;
     }
 
@@ -579,16 +585,16 @@
     .rag-stage {
       position: relative;
       z-index: 2;
-      padding: 9px 10px 10px;
+      padding: 16px 14px;
       border: 2px dashed #85c9e9;
       border-radius: 8px;
       background: #f7fcff;
     }
 
     .rag-title {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       color: #087dad;
-      font-size: 17px;
+      font-size: var(--text-support);
       font-weight: 800;
       text-align: center;
       text-transform: uppercase;
@@ -598,19 +604,19 @@
       display: grid;
       grid-template-columns: 1fr 24px 1fr 24px 1fr;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
 
     .rag-node {
-      min-height: 55px;
+      min-height: 70px;
       display: grid;
       place-items: center;
-      padding: 7px 5px;
+      padding: 10px 7px;
       border: 1px solid #b9e5fa;
       border-radius: 6px;
       background: white;
       color: #45616e;
-      font-size: 16px;
+      font-size: var(--text-support);
       line-height: 1.2;
       font-weight: 700;
       text-align: center;
@@ -625,12 +631,12 @@
 
     .model-row {
       position: relative;
-      min-height: 78px;
+      min-height: 96px;
     }
 
     .model-row .model-node {
       width: 100%;
-      min-height: 78px;
+      min-height: 96px;
     }
 
     .product-gallery {
@@ -672,7 +678,7 @@
 
     .product-panel.mobile .product-label {
       padding: 9px 7px;
-      font-size: 16px;
+      font-size: var(--text-support);
       white-space: nowrap;
     }
 
@@ -703,19 +709,24 @@
     .contribution-list .bullet::before { background: var(--green); }
     .future-list .bullet::before { background: var(--blue); }
 
-    .security {
+    .ai-guardrails {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 9px;
+      margin-top: 18px;
     }
 
-    .security span {
-      padding: 13px 14px;
-      border-left: 5px solid var(--blue);
+    .ai-guardrail {
+      min-width: 0;
+      padding: 14px 9px;
+      border-top: 4px solid var(--blue);
+      border-radius: 5px;
       background: #f3f8fa;
       color: #526168;
-      font-size: 20px;
+      font-size: var(--text-support);
+      line-height: 1.25;
       font-weight: 700;
+      text-align: center;
     }
 
     .right-column {
@@ -795,25 +806,25 @@
           <p>Học sinh có tốc độ tiếp thu khác nhau, giáo viên mất nhiều thời gian chuẩn bị nội dung và phụ huynh khó theo dõi tiến độ học tập liên tục.</p>
           <div class="problem-list">
             <div class="bullet">Trải nghiệm web và mobile chưa đồng bộ.</div>
-            <div class="bullet">AI chưa bám sát bài học và lịch sử học tập.</div>
-            <div class="bullet">Thiếu công cụ cộng đồng, trò chơi hóa và quản trị tập trung.</div>
-            <div class="bullet">Hệ thống cũ khó mở rộng khi số lượng chức năng tăng.</div>
+            <div class="bullet">AI chưa tích hợp chặt chẽ vào các chức năng.</div>
+            <div class="bullet">Thiếu cộng đồng, trò chơi hóa và quản trị tập trung.</div>
+            <div class="bullet">Hệ thống cũ khó mở rộng khi chức năng tăng.</div>
           </div>
         </section>
 
         <section class="section">
           <h2><span class="index">2</span>Mục tiêu</h2>
           <div class="goal">
-            <p>Xây dựng hệ sinh thái học Toán đa nền tảng, tích hợp AI có kiểm soát nhằm cá nhân hóa việc học và giảm tải quá trình chuẩn bị nội dung.</p>
+            <p>Xây dựng hệ sinh thái học Toán đa nền tảng, tích hợp AI có kiểm soát, cộng đồng học tập và trò chơi hóa nhằm hỗ trợ tự học và giảm tải việc chuẩn bị nội dung.</p>
           </div>
         </section>
 
         <section class="section blue">
-          <h2><span class="index">3</span>Người dùng</h2>
-          <div class="audiences">
-            <div class="audience"><div class="audience-icon">HS</div><div><b>Học sinh</b><span>Học bài, luyện tập, hỏi AI, đấu trường và theo dõi tiến độ.</span></div></div>
-            <div class="audience"><div class="audience-icon">GV</div><div><b>Giáo viên</b><span>Tạo nội dung, câu hỏi, kiểm tra và đánh giá kết quả.</span></div></div>
-            <div class="audience"><div class="audience-icon">QT</div><div><b>Quản trị viên</b><span>Quản lý người dùng, nội dung, cộng đồng, AI và thanh toán.</span></div></div>
+          <h2><span class="index">3</span>Phạm vi cải tiến</h2>
+          <div class="scope-list">
+            <div class="scope-item"><div class="scope-icon">ĐN</div><div><b>Đa nền tảng</b><span>Ứng dụng Web, Mobile, hệ thống quản trị, Backend và dịch vụ AI.</span></div></div>
+            <div class="scope-item"><div class="scope-icon">HT</div><div><b>Học tập tương tác</b><span>Bài học, luyện tập, kiểm tra, tiến độ, diễn đàn, đấu trường và thành tựu.</span></div></div>
+            <div class="scope-item"><div class="scope-icon">AI</div><div><b>AI hỗ trợ</b><span>Trợ lý theo ngữ cảnh, voice chat, sinh bài tập, gợi ý lời giải và sơ đồ tư duy.</span></div></div>
           </div>
         </section>
 
@@ -914,7 +925,7 @@
           <div class="ai-diagram">
             <div class="flow-node"><span class="step-dot">1</span>Người dùng chọn bài học và chức năng AI</div>
             <div class="flow-arrow"></div>
-            <div class="flow-node backend-node"><span class="step-dot">2</span>Backend xác thực JWT, phân quyền và kiểm tra xu</div>
+            <div class="flow-node backend-node"><span class="step-dot">2</span>Backend xác thực JWT, phân quyền và kiểm tra số dư xu</div>
             <div class="flow-arrow"></div>
             <div class="rag-stage">
               <div class="rag-title">3 · Tạo ngữ cảnh bằng RAG</div>
@@ -933,10 +944,15 @@
             <div class="flow-arrow"></div>
             <div class="flow-node output-node"><span class="step-dot">5</span>Kiểm tra, lưu kết quả và chuyển giáo viên duyệt khi cần</div>
           </div>
+          <div class="ai-guardrails" aria-label="Cơ chế kiểm soát AI">
+            <div class="ai-guardrail">RAG theo học liệu</div>
+            <div class="ai-guardrail">Backend kiểm tra cấu trúc</div>
+            <div class="ai-guardrail">Con người duyệt khi cần</div>
+          </div>
         </section>
 
         <section class="section">
-          <h2><span class="index">8</span>Đóng góp chính</h2>
+          <h2><span class="index">8</span>Kết quả đề tài</h2>
           <div class="contribution-list">
             <div class="bullet">Đồng bộ trải nghiệm học tập giữa web và mobile.</div>
             <div class="bullet">Đưa AI trực tiếp vào luồng bài học bằng RAG.</div>
@@ -946,25 +962,14 @@
           </div>
         </section>
 
-        <section class="section blue">
-          <h2><span class="index">9</span>An toàn và kiểm soát</h2>
-          <div class="security">
-            <span>JWT và phân quyền vai trò</span>
-            <span>BCrypt cho mật khẩu</span>
-            <span>HMAC giữa Backend và AI</span>
-            <span>Khóa API chỉ ở máy chủ</span>
-            <span>Kiểm duyệt cộng đồng</span>
-            <span>Human-in-the-loop cho AI</span>
-          </div>
-        </section>
-
         <section class="section orange">
-          <h2><span class="index">10</span>Hướng phát triển</h2>
+          <h2><span class="index">9</span>Hướng phát triển</h2>
           <div class="future-list">
-            <div class="bullet">Cải thiện reranking và đánh giá chất lượng câu trả lời AI.</div>
+            <div class="bullet">Cải thiện reranking, kiểm thử chất lượng AI và hỗ trợ thêm loại tài liệu.</div>
             <div class="bullet">Bổ sung dạng bài tập và công cụ duyệt cho giáo viên.</div>
-            <div class="bullet">Nâng cấp gợi ý học tập dựa trên điểm yếu cá nhân.</div>
-            <div class="bullet">Hoàn thiện CI/CD, kiểm thử tự động, log và cảnh báo.</div>
+            <div class="bullet">Nâng cấp hệ thống quản lý lớp, chương và bài học bằng AI.</div>
+            <div class="bullet">Mở rộng đối soát thanh toán, mã khuyến mãi và báo cáo doanh thu.</div>
+            <div class="bullet">Hoàn thiện CI/CD, kiểm thử tự động, log, cảnh báo và sao lưu.</div>
           </div>
         </section>
       </div>
